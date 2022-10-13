@@ -20,12 +20,13 @@ Function.prototype.myBind = function(oThis) {
 
 function foo(x) {
   this.b = 100;
-  this.a = x;
-  return this.b;
+  return this.a;
 }
+
+foo.prototype = {c:1}
 
 var func = foo.myBind({a:1}, 20);
 // console.log(func())
 
 var za = new func({a:1},20);
-console.log(za.b);
+console.log(za.c);
