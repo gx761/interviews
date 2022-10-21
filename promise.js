@@ -41,17 +41,6 @@ MyPromise.prototype.then = function(onResolved, onRejected) {
   onResolved = typeof onResolved === 'function' ? onResolved : function(v) {return v}
   onRejected = typeof onRejected === 'function' ? onRejected : function(v) {throw v}
 
-  // if (this.state === PENDING) {
-  //   this.resolvedCallbacks.push(onResolved)
-  //   this.rejectedCallebacks.push(onRejected)
-  // }
-  // if(this.state === RESOLVED) {
-  //   onResolved(this.value)
-  // }
-  // if(this.state === REJECTED) {
-  //   onRejected(this.reason)
-  // }
-
   let promise2 = new MyPromise((resolve, reject) => {
     if(_this.state === RESOLVED) {
       setTimeout(() => {
@@ -98,9 +87,9 @@ MyPromise.prototype.then = function(onResolved, onRejected) {
   return promise2;
 }
 
-function resolvePromise(x, promise2, resolve, reject) {
+function resolvePromise(promise2, x, resolve, reject) {
   //若 x 和 promise2 引用的是同一个对象，则直接报错。
-  if (x ===promise2) {
+  if (x === promise2) {
     reject(new TypeError(`Type err, chianed cycle`))
   }
   
@@ -112,7 +101,7 @@ function resolvePromise(x, promise2, resolve, reject) {
         then.call(x, y=>{  //执行 then 方法时，有一个成功回调和一个失败回调，执行成功走成功回调，并传入成功结果 y；执行失败走失败回调，并传入失败原因 e, 使用 reject 返回
           if(called) return
           called = true
-          resolvePromise(y, promise2, resolve, reject) //执行成功返回值 y 可能还是个 promise, 继续递归解析 y 的值
+          resolvePromise(promise2, y, resolve, reject) //执行成功返回值 y 可能还是个 promise, 继续递归解析 y 的值
         },e=>{
           if(called) return
           called = true
