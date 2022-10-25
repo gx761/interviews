@@ -8,13 +8,12 @@ Function.prototype.myBind = function(oThis) {
   const fToBind = this; //called with new
 
   fNOP = function(){};
+  fNOP.prototype = this.prototype; // this就是要被绑定的构造函数本身，
+  fBound.prototype = new fNOP(); //也可以 fBound.prototype = this.prototype, this instanceof fBound
   
   fBound = function() {
     return fToBind.apply(this instanceof fNOP ? this : oThis, [...args, arguments])
   }
-
-  fNOP.prototype = this.prototype; // this就是要被绑定的构造函数本身，
-  fBound.prototype = new fNOP(); //也可以 fBound.prototype = this.prototype, this instanceof fBound
   return fBound;
 }
 
