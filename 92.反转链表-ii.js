@@ -29,6 +29,13 @@ var reverseBetween = function(head, left, right) {
 
   let current = pre.next
 
+  //pre 1 > 2 > 3 > 4
+  //pre 2(t) > 1(c) > 3 > 4
+  //pre 3(t) > 2 > 1(c) > 4
+  // 4 3 2 1 >5
+
+
+
   for(let i=0; i<right-left;i++) { //可以估算出要循环的次数。
     let t = current.next;
     current.next = t.next
@@ -36,7 +43,6 @@ var reverseBetween = function(head, left, right) {
     pre.next = t;
   }
   return dummy.next;
-
 };
 // @lc code=end
 
