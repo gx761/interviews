@@ -1,13 +1,17 @@
+
+
 function throttle(fn, delay) {
-  let curTime = Date.now();
+  let timer = Date.now();
 
   return function() {
-    let context = this;
     let args = arguments;
+    let context = this;
+
     let now = Date.now();
-    if(now - curTime > delay) {
-      curTime = now;
+
+    if(now-timer >=delay) {
       fn.apply(context, args);
+      timer = now;
     }
   }
 }

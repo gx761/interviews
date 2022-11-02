@@ -2,7 +2,6 @@
 
 function compose(middlewares) {
   return function (ctx) {
-
     const dispatch = function(i) {
       const fn = middlewares[i];
       try {
@@ -14,7 +13,6 @@ function compose(middlewares) {
     dispatch(0);
   }
 }
-
 
 class Koa {
   constructor() {

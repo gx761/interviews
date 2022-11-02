@@ -16,18 +16,18 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-// var reverseList = function(head) {
-//   let prev = null;
-//   let current = head;
+var reverseList = function(head) {
+  let prev = null;
+  let current = head;
 
-//   while(current) {
-//     let next = current.next;
-//     current.next = prev;
-//     prev = current;
-//     current = next;
-//   }
-//   return prev
-// };
+  while(current) {
+    let next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
+  }
+  return prev
+};
 
 // var reverseList = function(head) {
 //   if(head === null || head.next ===null) {
@@ -40,17 +40,17 @@
 //   return newHead;
 // }
 
-var reverseList = function(head) {
-  let p = new ListNode(-1)
-  let current = head;
-  while(current) {
-    let t = current;
-    current = current.next;
-    t.next = p.next;
-    p.next = t;
-  }
-  return p.next;
-}
+// var reverseList = function(head) {
+//   let p = new ListNode(-1)
+//   let current = head;
+//   while(current) {
+//     let t = current;
+//     current = current.next;
+//     t.next = p.next;
+//     p.next = t;
+//   }
+//   return p.next;
+// }
 
 
 // @lc code=end

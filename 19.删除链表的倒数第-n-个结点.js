@@ -68,27 +68,43 @@
  * @param {number} n
  * @return {ListNode}
  */
+// var removeNthFromEnd = function(head, n) {
+//   let traverse = travse(head, n);
+//   if(traverse == n) // 删除的是头元素
+//       return head.next;
+//   return head;
+// };
+
+// function travse(node, n) { //返回node节点的倒序数字
+//   if(node ===null) {
+//     return 0;
+//   }
+//   let num = travse(node.next, n);
+//   if(num ===n) {
+//     node.next= node.next.next;
+//   }
+//   return num+1;
+// }
+
 var removeNthFromEnd = function(head, n) {
 
-  let traverse = travse(head, n);
-  if(traverse == n) // 删除的是头元素
-      return head.next;
-  return head;
+  let dummy = new ListNode(-1);
+  dummy.next = head;
+  let first= dummy;
+  let second = dummy;
 
-};
-
-function travse(node, n) { //返回node节点的倒序数字
-  if(node ===null) {
-    return 0;
+  for(let i=0;i<n +1;i++) {
+    first = first.next;
   }
 
-  let num = travse(node.next, n);
-
-  if(num ===n) {
-    node.next= node.next.next;
+  while(first) {
+    first = first.next
+    second = second.next;
   }
 
-  return num+1;
+  second.next = second.next.next;
+
+  return dummy.next
 }
 
 // @lc code=end
