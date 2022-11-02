@@ -1,7 +1,6 @@
 
 
 function transNum(num) {
-
   if(num.length <=3) {
     return num;
   }
@@ -14,6 +13,5 @@ function transNum(num) {
     return num.match(/\d{3}/g).join(',');
   }
 }
-
 
 console.log(transNum('99'));

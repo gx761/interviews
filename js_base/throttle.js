@@ -9,6 +9,5 @@ function throttle(fn, delay) {
       curTime = now;
       fn.apply(context, args);
     }
-
   }
 }

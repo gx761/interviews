@@ -1,7 +1,7 @@
 // objectFactory(constructor, initProps);
 // new Constructor(iniProps)
 
-function objectFactory(c, p) {
+function objectFactory() {
 
   let newObject = null;
   let constructor = Array.prototype.shift.call(arguments) // c
@@ -18,6 +18,7 @@ function objectFactory(c, p) {
   let flag = result && (typeof result === 'object' || typeof result === 'function');
 
   return flag ? result : newObject;
+
 }
 
 function TestClass(props) {
