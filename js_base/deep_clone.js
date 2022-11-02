@@ -3,8 +3,6 @@ function isComplextData(data) {
   return (typeof data === 'object' && data!==null) || typeof data === 'function'
 }
 
-
-
 function deepClone(data) {
   const map = new WeakMap();
   if(!isComplextData(data)) {
