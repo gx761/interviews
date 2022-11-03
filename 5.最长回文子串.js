@@ -83,7 +83,7 @@ var longestPalindrome = function(s) {
       }
 
       if(m[i][j]) {
-        if(j-i +1 >= maxLen) {
+        if(j- i +1 >= maxLen) {
          maxLen= j-i+1; 
          start = i;
         }
