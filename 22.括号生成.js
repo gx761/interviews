@@ -55,18 +55,18 @@ var generateParenthesis = function(n) {
 };
 
 function backTrack(current, result, left, right, n) {
-  if(current.length === 2*n) {
+  if(current.length === 2*n) { //如果括号数满了，推送结果
     result.push(current)
     return;
   }
 
-  if(left < n) {
+  if(left < n) { //如果左括号小于一半， 可以加一个左括号
     current = current + '(';
-    backTrack(current, result, left+1, right, n)
-    current = current.slice(0, current.length-1)
+    backTrack(current, result, left+1, right, n) //贪心
+    current = current.slice(0, current.length-1)  //回溯
   }
 
-  if(right < left) {
+  if(right < left) { //如果右括号数小于左括号数，可以加一个右括号
     current = current + ')';
     backTrack(current, result, left, right+1, n)
     current = current.slice(0, current.length-1)

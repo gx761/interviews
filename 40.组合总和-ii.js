@@ -65,7 +65,6 @@ var combinationSum2 = function(candidates, target) {
   const result = [];
 
   candidates = candidates.sort((a,b) => a>b?1:-1)
-  console.log(candidates);
 
   dfs([], 0, target, 0);
 

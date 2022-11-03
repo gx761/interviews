@@ -66,11 +66,11 @@
  */
 var combinationSum = function(candidates, target) {
   const result =[];
-  dfs(candidates, [],0, target,0);
+  dfs([],0, target,0);
   return result;
 
-  function dfs(candidates, current, sum, target, begin) {
-    if(sum ===target) {
+  function dfs(current, sum, target, begin) {
+    if(sum ===target) { //如果sum刚好跟target相等，推送结果返回
       result.push(Array.from(current));
       return;
     }
@@ -80,7 +80,7 @@ var combinationSum = function(candidates, target) {
       if(sum+candidates[i] <= target) {
         sum = sum+candidates[i];
         current.push(candidates[i]);
-        dfs(candidates, current, sum , target,i)
+        dfs(current, sum , target,i)
         current.pop();
         sum = sum -candidates[i]
       }

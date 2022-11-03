@@ -71,13 +71,13 @@ var inorderTraversal = function(root) {
   const res = [];
 
   while(stack.length !==0 || root) {
-    while(root) {
+    while(root) { // 一路插root，一路遍历到最左边节点
       stack.push(root);
       root = root.left;
     }
-    root = stack.pop();
-    res.push(root.val);
-    root = root.right;
+    root = stack.pop(); //pop一下，
+    res.push(root.val); //有左边就左边，否则就中间
+    root = root.right; // 开始右边
   }
 
   return res;

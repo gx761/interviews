@@ -34,15 +34,18 @@ var reverseBetween = function(head, left, right) {
   //pre 3(t) > 2 > 1(c) > 4
   // 4 3 2 1 >5
 
-
-
   for(let i=0; i<right-left;i++) { //可以估算出要循环的次数。
-    let t = current.next;
-    current.next = t.next
-    t.next = pre.next 
-    pre.next = t;
+    let next = current.next;
+    current.next = next.next
+    next.next = pre.next 
+    pre.next = next;
   }
   return dummy.next;
 };
 // @lc code=end
+
+// 先将 curr 的下一个节点记录为 next；
+// 执行操作 ①：把 curr 的下一个节点指向 next 的下一个节点；
+// 执行操作 ②：把 next 的下一个节点指向 pre 的下一个节点；
+// 执行操作 ③：把 pre 的下一个节点指向 next。
 

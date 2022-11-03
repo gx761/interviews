@@ -40,17 +40,7 @@ var reverseList = function(head) {
 //   return newHead;
 // }
 
-// var reverseList = function(head) {
-//   let p = new ListNode(-1)
-//   let current = head;
-//   while(current) {
-//     let t = current;
-//     current = current.next;
-//     t.next = p.next;
-//     p.next = t;
-//   }
-//   return p.next;
-// }
+
 
 
 // @lc code=end

@@ -83,17 +83,17 @@ var merge = function(nums1, m, nums2, n) {
 
   let cur;
   while(p1>=0 || p2>=0) {
-    if(p1 === -1) {
+    if(p1 === -1) { //nums1已经到头了
       cur = nums2[p2]
       p2--;
-    } else if(p2 === -1) {
+    } else if(p2 === -1) { //nums2已经到头了
       cur = nums1[p1];
       p1--;
-    } else if(nums1[p1]>nums2[p2]) {
-      cur = nums1[p1];
+    } else if(nums1[p1]>nums2[p2]) { //都没有到头
+      cur = nums1[p1];  //大的先插入
       p1--;
     } else {
-      cur = nums2[p2];
+      cur = nums2[p2]; //大的先插入
       p2--;
     }
 
