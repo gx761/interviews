@@ -50,26 +50,22 @@
  */
 var longestPalindrome = function(s) {
   const len = s.length;
-  let maxLen =1;
-  let start=0;
-  let m = []
 
   if(len<2) {
     return s;
   }
 
-  for(let i =0;i<len;i++) {
-    m[i] = [];
-    for(let j=0;j<len;j++) {
-      m[i][j] = false;
-    }
-  }
+  let maxLen =1;
+  let start=0;
+
+  // dp， 字符串第i下标，到第j下标中间的字符串是否为回文
+  let m = new Array(len).fill(false).map(v => new Array(len).fill(false))
 
   for(let i =0;i<len;i++) {
     m[i][i] = true;
   }
 
-  for(let Len=2; Len<=len;Len++) {
+  for(let Len=2; Len<=len;Len++) { //子串长度为为Len时
     for(let i=0;i<len;i++) {
       const j = i+Len-1;
       if(j>=len) {
@@ -97,7 +93,6 @@ var longestPalindrome = function(s) {
   }
 
   return s.substring(start,start+maxLen);
-
 };
 
 console.log(longestPalindrome('bb'))

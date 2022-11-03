@@ -90,7 +90,7 @@ var nextPermutation = function(nums) {
 
   let k;
 
-  for(k = nums.length-1;k>=j;k--) { //从右向左，直到n+1，找到第一个比 nums[i]大的数nums[k]
+  for(k = nums.length-1;k>=j;k--) { //从右向左，直到i+1，找到第一个比 nums[i]大的数nums[k]
     if(nums[k] >nums[i]) {
       break;
     }
@@ -119,7 +119,7 @@ function swap(nums, i,k) {
   nums[k] = temp;
 }
 
-// console.log(nextPermutation([5,4,7,5,3,2]))
+console.log(nextPermutation([1,3,5,4,2]))
 
 // @lc code=end
 

@@ -66,6 +66,24 @@
  */
 var isValidBST = function(root) {
 
+  let lower= Number.MIN_SAFE_INTEGER;
+  let higher= Number.MAX_SAFE_INTEGER;
+
+  return dfs(root, lower, higher);
 };
+
+function dfs(root, lower, higher) {
+  if(!root) {
+    return true;
+  }
+
+  if(root.val <=lower || root.val >= higher) {
+    return false;
+  }
+
+  return dfs(root.left, lower, root.val) && dfs(root.right, root.val, higher);
+
+
+}
 // @lc code=end
 
