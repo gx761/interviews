@@ -109,15 +109,12 @@ function mergeLists(a, b) {
       pre = pre.next;
     }
   }
-
   if(a) {
     pre.next = a;
   }
-
   if(b) {
     pre.next = b;
   }
-
   return dummy.next;
 }
 

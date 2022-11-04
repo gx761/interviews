@@ -86,6 +86,10 @@ var sumNumbers = function(root) {
 };
 
 function dfs(path, node, result) {
+  if(!node) {
+    return;
+  }
+
   path.push(node.val);
 
   if(!node.left && !node.right) {
@@ -93,13 +97,9 @@ function dfs(path, node, result) {
     return;
   }
 
-  if(node.left) {
-    dfs(path.slice(), node.left, result)
-  }
 
-  if(node.right) {
-    dfs(path.slice(), node.right, result)
-  }
+  dfs(path.slice(), node.left, result)
+  dfs(path.slice(), node.right, result)
 }
 // @lc code=end
 

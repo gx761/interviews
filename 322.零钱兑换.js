@@ -71,7 +71,9 @@ var coinChange = function(coins, amount) {
       }
     }
   }
+  console.log(dp);
   return dp[amount] ===Number.MAX_SAFE_INTEGER ? -1: dp[amount];
 };
+
 // @lc code=end
 

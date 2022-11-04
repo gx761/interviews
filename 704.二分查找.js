@@ -51,11 +51,8 @@
  */
 var search = function(nums, target) {
 
-return quickSelect(nums, target, 0, nums.length-1);
-
-};
-
-function quickSelect(nums, target, left, right) {
+  let left = 0;
+  let right = nums.length-1;
 
   while(left <=right) {
     const mid = Math.floor((right-left)/2) +left;
@@ -68,7 +65,6 @@ function quickSelect(nums, target, left, right) {
     }
   }
   return -1;
-}
-
+};
 // @lc code=end
 

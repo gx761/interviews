@@ -58,24 +58,24 @@
  */
 var findPeakElement = function(nums) {
 
-  return find(nums, 0, nums.length-1);
+  return find(nums, 0, nums.length-1); //二分查找
 
 
   function find(nums, left, right) {
-    if(left>=right) {
+    if(left>=right) { //如果left大于right，left就是峰值
       return left;
     }
 
-    const mid = Math.floor((left +right)/2);
+    const mid = Math.floor((left +right)/2); //找到中间索引
 
-    if(nums[mid] >nums[mid-1] &&nums[mid] > nums[mid+1]) {
+    if(nums[mid] >nums[mid-1] &&nums[mid] > nums[mid+1]) { //如果比前后都大，那mid就是峰值
       return mid;
     }
 
-    if(nums[mid] <= nums[mid+1]) {
+    if(nums[mid] <= nums[mid+1]) { //如果比后面小，峰值就在后面，所以从后面开始二分搜索
       return find(nums, mid+1, right);
     } else {
-      return find(nums,left,  mid-1)
+      return find(nums,left,  mid-1) // 如果比前端小，峰值在前面
     }
   }
 

@@ -102,11 +102,9 @@ var detectCycle = function(head) {
 
     if(slow === fast) {
       let newPtr = head;
-      let count = 0
       while(newPtr !== slow) {
         newPtr = newPtr.next;
         slow = slow.next;
-        count++
       }
       return newPtr;
     }

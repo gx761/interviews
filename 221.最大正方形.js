@@ -64,23 +64,23 @@ var maximalSquare = function(matrix) {
 
   let dp = [];
   for (let i=0;i< rows;i++) {
-    dp[i] = new Array(columns);
+    dp[i] = new Array(columns); //以i,j为右下角的最大正方形边长
   }
 
   let max = 0
 
-  for(let i =0; i< rows; i++) {
+  for(let i =0; i< rows; i++) { 
     for(let j=0; j< columns; j++) {
-      if(matrix[i][j] === '1') {
-        if(i==0 || j ==0) {
+      if(matrix[i][j] === '1') { 
+        if(i==0 || j ==0) { //左，右，下三个角落都是1
           dp[i][j] =1;
         } else {
-          dp[i][j]=Math.min(Math.min(dp[i-1][j],dp[i][j-1]),dp[i-1][j-1])+1
+          dp[i][j]=Math.min(Math.min(dp[i-1][j],dp[i][j-1]),dp[i-1][j-1])+1 //左，上，左上三个节点正方形边长的最小值+1
         }
-      } else {
+      } else { //0 的时候，边长也是0
         dp[i][j] = 0;
       }
-      max = Math.max(dp[i][j], max);
+      max = Math.max(dp[i][j], max); //记录一下最大边长
     }
   }
   return Math.pow(max,2);

@@ -75,8 +75,8 @@ var rightSideView = function(root) {
 
   while(stack.length !==0) {
     const currentLevelSize = stack.length;
-    for(let i=0;i<currentLevelSize;i++) {
-      const node = stack.shift();
+    for(let i=0;i<currentLevelSize;i++) { //二叉树的层序遍历
+      const node = stack.shift(); 
       if(i === currentLevelSize -1) {
         result.push(node.val);
       }

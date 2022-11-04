@@ -104,7 +104,6 @@ function quickSortOptimized(nums, start, end) {
   quickSortOptimized(nums, start, left-1)
   quickSortOptimized(nums, left+1, end)
 
-
   function swap(nums, i, j) {
     const temp = nums[i];
     nums[i] = nums[j];

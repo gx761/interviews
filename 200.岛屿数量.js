@@ -70,7 +70,7 @@ var numIslands = function(grid) {
   let numIslands = 0;
 
   for(let i=0; i<grid.length; i++) {
-    for(let j=0; j<grid[0].length; j++) {
+    for(let j=0; j<grid[0].length; j++) { //遍历所有节点，如果为0跳过，如果唯一，找到一个岛，然后从这个岛上开始扩散, 把所有陆地变海洋 
      if(grid[i][j] ==0) {
       continue;
      } 
@@ -82,13 +82,13 @@ var numIslands = function(grid) {
 };
 
 function dfs(grid, x, y) {
-  if(!inArea(grid, x,y)) {
+  if(!inArea(grid, x,y)) { //要判断一下是否还在边界内
     return;
   }
   if(grid[x][y] ==0) {
     return;
   }
-  grid[x][y] =0;
+  grid[x][y] =0; //陆地变海洋
 
   dfs(grid, x+1, y);
   dfs(grid, x-1, y);

@@ -75,15 +75,16 @@
 
   let left =0;
   let right = s.length-1;
-  while(s.charAt(left) === ' ') {
+  while(s.charAt(left) === ' ') { //去掉开头的space
     left++;
   }
-  while(s.charAt(right) === ' ') {
+  while(s.charAt(right) === ' ') { //去掉尾部的space
     right--;
   }
+
   let sb= [];
 
-  while(left<=right) {
+  while(left<=right) { //去掉单词中间的多余space
     let c = s.charAt(left);
     if (c != ' ') {
         sb.push(c);
@@ -93,9 +94,9 @@
     ++left;
   }
 
-  str = reverse(sb, 0,sb.length-1);
+  str = reverse(sb, 0,sb.length-1); //完全反转字符串
 
-  return reverseOnlyWords(str).join('');
+  return reverseOnlyWords(str).join(''); //反转每一个单词
 
 };
 
@@ -104,11 +105,11 @@ function reverseOnlyWords(arr) {
   let end = 0;
 
   while(start< arr.length) {
-    while(arr[end] !==' ' && end <arr.length) {
+    while(arr[end] !==' ' && end <arr.length) { //找到单词结尾
       end++;
     }
-    reverse(arr,start, end-1);
-    start = end+1;
+    reverse(arr,start, end-1); // 反转单词
+    start = end+1; //下一个单词继续
     end++;
   }
   return arr;
