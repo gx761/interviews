@@ -29,12 +29,14 @@ class Lazyman {
       console.log(`eat ${food}`)
       this.next();
     });
+    return this;
   }
 
   sleepFirst(period) {
     this.query.push(()=>{
       setTimeout(()=>{console.log(`先等待${period}秒`); this.next()}, period * 1000);
     })
+    return this;
   }
 }
 

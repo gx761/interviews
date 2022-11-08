@@ -100,7 +100,6 @@ var threeSum = function(nums) {
         left++
       }
       if(sum ===0) {
-        console.log(first, second, third)
         res.push([first, second, third]);
         while(left<right && nums[left] === nums[left+1]) {
           left++;
