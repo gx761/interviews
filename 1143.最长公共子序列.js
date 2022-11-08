@@ -68,6 +68,31 @@
  * @return {number}
  */
 var longestCommonSubsequence = function(text1, text2) {
+/**
+ * @param {string} text1
+ * @param {string} text2
+ * @return {number}
+ */
+var longestCommonSubsequence = function(text1, text2) {
+    
+    const dp = new Array(text1.length+1).fill(0).map(v => new Array(text2.length+1).fill(0))
+
+    for(let i=0;i<text1.length+1;i++){
+        
+        for(let j=0;j<text2.length+1;j++){
+            if(i===0||j===0){ // i, j之前的公共子序列
+                dp[i][j] = 0;
+                continue;
+            }
+            if(text1.charAt(i-1) === text2.charAt(j-1)) {
+                dp[i][j] = dp[i-1][j-1]+1 //之前相等，所以加1就是现在
+            } else{
+                dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1])
+            }
+            
+        }
+    }
+    return dp[text1.length][text2.length]
 
 };
 // @lc code=end
