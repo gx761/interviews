@@ -115,7 +115,6 @@ function resolvePromise(promise2, x, resolve, reject) {
       called = true;
       reject(e)
     }
-
   } else {
     resolve(x) //若 x 是一个普通值，直接通过 resolve 返回
   }

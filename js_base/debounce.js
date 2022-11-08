@@ -17,6 +17,7 @@ function debounce(fn, wait, initTrigger) {
     } else {
       timer = setTimeout(() =>{
         fn.apply(context, args)
+        firstTrigger = false;
       }, wait)
     }
   }

@@ -69,7 +69,7 @@ function backTrack(current, result, left, right, n) {
   if(right < left) { //如果右括号数小于左括号数，可以加一个右括号
     current = current + ')';
     backTrack(current, result, left, right+1, n)
-    current = current.slice(0, current.length-1)
+    // current = current.slice(0, current.length-1)
   }
 
 }
